@@ -11,7 +11,7 @@ branch="${REF[2]}"
 
 if [ "$branch" == "master" ]; then
 crumb=$(curl -u "soumi:ss" -s 'http://a5ae2c65.ngrok.io/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)')
-curl -u "jenkins:1234" -H "$crumb" -X POST http://a5ae2c65.ngrok.io/job/maven/build?delay=0sec
+curl -u "soumi:ss" -H "$crumb" -X POST http://a5ae2c65.ngrok.io/job/maven/build?delay=0sec
 
   if [ $? -eq 0 ] ; then
     echo "*** Ok"
